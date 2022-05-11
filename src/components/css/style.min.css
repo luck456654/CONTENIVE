@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+@font-face {
+    font-display: swap;
+    font-weight: 400;
+    font-family: 'Lato-Regular';
+    font-style: normal;
+    src: url(../fonts/Lato-Regular.woff) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-weight: 700;
+    font-family: 'Lato-Bold';
+    font-style: normal;
+    src: url(../fonts/Lato-Bold.woff) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-weight: 500;
+    font-family: 'Lato-Medium';
+    font-style: normal;
+    src: url(../fonts/lato-medium.woff) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-weight: 300;
+    font-family: 'Lato-Light';
+    font-style: normal;
+    src: url(../fonts/Lato-Light.woff) format("woff2")
+}
+
+body{
+    font-family: 'Lato-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.94vw;
+    }
+h1{
+    font-family: 'Lato-Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.65vw;
+    } 
+h2{
+    font-weight: 400;
+    font-size: 1.25vw;
+   }  
+.title{
+    margin-bottom: 1.4vw;
+}
+.desck{
+    margin-bottom: 1.04vw;
+} 
+#app {
+    margin-top: -1.3vw!important;
+} 
+.form{
+    width: 42.92vw;
+    height: 20.47vw;
+    box-shadow: 0px 2px 10px rgba(10, 10, 10, 0.25);
+    border-radius: 0.31vw;
+    margin: 0 auto;
+    padding: 1vw 0 0 4.5vw;
+    margin-bottom: 3vw;
+    
+}  
+.form__ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 40vw;
+}
+.form__li{
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-bottom: 1px solid #C4C4C4;
+    justify-content: space-between;
+    margin-bottom: 1.6vw;
+    }
+.form__title{
+    font-family: 'Lato-Bold';
+    font-style: normal;
+    font-size: 1.67vw;
+    text-align: left;
+}
+.form__desk{
+    font-family: 'Lato-Light';
+    font-style: normal;
+    font-size: 0.94vw;
+    text-align: left;
+    margin-bottom: 2vw;
+   }
+.form__time{
+   font-size: 0.83vw;
+   text-align: right;
+   margin-bottom: 1vw;
+}   
+.form__button{
+    background-color: white;
+    border: none;
+    font-family: 'Lato-Bold';
+    font-size: 0.83vw;
+    text-align: right;
+    color: #9B51E0;
+}
+.button-add{
+    background-color: #9B51E0;
+    width: 6vw;
+    height: 3vw;
+    color: white; 
+    border-radius: 5vw;
+    font-size: 0.5vw;
+    border: none;
+    outline: none;
+    margin-bottom: 3vw;
+}
+.formAddCity{
+    width:20vw;
+    padding: 1vw;
+}
+.formAddCity__ul{
+    width: 20vw;
+}
+.formAddCity__li{
+    border: none;
+}
+.button__svd-add{
+    width: 4vw;
+    height: 4vw;
+    float: right;
+}
+.modalWindow{
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    height: 150%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modalWindow{
+    display: flex;
+    justify-content: center;
+}
+.modalWindow__form{
+    width: 39.11vw;
+    height: 20.68vw;
+    position: relative;
+    top: 15.5vw;
+    background-color: white;
+    box-shadow: 0px 16px 24px rgb(0 0 0 / 14%), 0px 6px 30px rgb(0 0 0 / 12%), 0px 8px 10px rgb(0 0 0 / 20%);
+    border-radius: 0.21vw;
+    padding: 1.3vw 0 0 0.3vw;
+}
+.modalWindow__button{
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 0.83vw;
+}
+.modalWindow__title{
+    font-family: "Lato-Bold";
+    font-size: 1.67vw;
+    text-align: left;
+    margin-bottom: 1vw;
+}
+.modalWindow__desk{
+font-size:1.25vw;
+text-align: left;
+color: #767676;
+margin-bottom: 3vw;
+}
+.modalWindow__input{
+    border: none;
+    border-bottom: 1px solid #1B1B1B;
+    text-align: left;
+    font-family: "Lato-Medium";
+    font-size: 1.25vw;
+    left: -11vw;
+    width: 95%;
+    margin-bottom: 8vw;
+}
+.modalWindow__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.83vw;
+    font-family: 'Lato-Bold';
+    color: #C1C1C1!important;
+}
+.modalWindow__add{
+    margin-right: 2.5vw;
+}
