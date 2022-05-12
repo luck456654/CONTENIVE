@@ -23,20 +23,20 @@
     <h1 class="title">World Weather</h1>
     <h2 class="desck">Watch weather in your current location</h2>
     <form class="form">
-      <div class="form__title">Moscow, RU</div>
+      <div class="form__title">{{MoscowData.data.name}},{{MoscowData.data.sys.country}}</div>
       <p class="form__desk">Your current location</p>
       <ul class="form__ul">
         <li class="form__li">
           <div>Weather</div>
-          <div>Clouds</div>
+          <div>{{MoscowData.data.weather[0].description}}</div>
         </li>
         <li class="form__li">
           <div>Temperature</div>
-          <div>'Температура'</div>
+          <div>{{MoscowData.data.main.temp_max}}</div>
         </li>
         <li class="form__li">
           <div>Humidity</div>
-          <div>'Влажность'</div>
+          <div>{{MoscowData.data.main.humidity}}</div>
         </li>
         <li>
           <div class="form__time">Время</div>
@@ -47,21 +47,24 @@
       </ul>
     </form>
     <button class="button-add" @click="showModal">ADD CITY</button>
-    <form class="form formAddCity">
-      <div class="form__title">Moscow, RU</div>
+    <div class="form__AddCity">
+    <form v-for="item in dataCity"
+              :key="item.id"
+               class="form formAddCity" >
+      <div class="form__title">{{item.data.name}},{{item.data.sys.country}}</div>
       <p class="form__desk">Your current location</p>
       <ul class="form__ul formAddCity__ul">
         <li class="form__li">
           <div>Weather</div>
-          <div>Clouds</div>
+          <div>{{item.data.weather[0].description}}</div>
         </li>
         <li class="form__li">
           <div>Temperature</div>
-          <div>'Температура'</div>
+          <div>{{item.data.main.temp_max}}</div>
         </li>
         <li class="form__li">
           <div>Humidity</div>
-          <div>'Влажность'</div>
+          <div>{{item.data.main.humidity}}</div>
         </li>
         <li>
           <div class="form__time">Время</div>
@@ -72,6 +75,7 @@
         </li>
       </ul>
     </form>
+    </div>
     <svg
       class="button__svd-add"
       viewBox="0 0 76 76"
@@ -162,6 +166,7 @@
         </filter>
       </defs>
     </svg>
+    
   </body>
 </template>
 
@@ -175,8 +180,11 @@ export default {
   name: "ProductsList",
   data() {
     return {
-      message: "777",
+      data: [],
       currentCity: "",
+      MoscowData:'',
+      city:'',
+      dataCity:[],
     };
   },
   methods: {
@@ -184,9 +192,11 @@ export default {
       this.$refs.modalWindow.style.display = "flex";
     },
     addCity() {
+      this.city=this.$refs.addCityInput.value
       localStorage.setItem("city", this.$refs.addCityInput.value);
-      alert(this.$refs.addCityInput.value);
+     /* alert(this.$refs.addCityInput.value);*/
       this.loadData(this.$refs.addCityInput.value);
+      this.$refs.modalWindow.style.display = "none";
     },
     loadData(city) {
       localStorage.getItem("city");
@@ -197,11 +207,19 @@ export default {
             "+&APPID=769acfb2b423d6376361ff6032d02022"
         )
         .then((response) => {
-          this.message = response;
+          if (city=='Moscow,RU'){
+            this.MoscowData=response
+          }
+         else{
+           alert('this.city')
+            this.dataCity.push(response)
+            }
         });
     },
   },
-  created() {},
+  created() {
+    this.loadData("Moscow,RU");
+  },
 };
 </script>
 

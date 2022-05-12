@@ -121,12 +121,17 @@ h2{
 .formAddCity{
     width:20vw;
     padding: 1vw;
+    
 }
 .formAddCity__ul{
     width: 20vw;
 }
 .formAddCity__li{
     border: none;
+}
+.form__AddCity{
+    display: flex;
+    flex-direction: row;
 }
 .button__svd-add{
     width: 4vw;

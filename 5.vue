@@ -1,0 +1,7 @@
+{ "data": 
+    { "coord": 
+        { "lon": 37.6156, "lat": 55.7522 }, 
+       "weather": [ { "id": 803, "main": "Clouds", "description": "broken clouds", "icon": "04d" } ], 
+       "base": "stations", "main": { "temp": 293.04, "feels_like": 292.29, "temp_min": 292.39, "temp_max": 293.9, "pressure": 1002, "humidity": 46, "sea_level": 1002, "grnd_level": 985 }, "visibility": 10000, "wind": { "speed": 4.59, "deg": 252, "gust": 7.77 }, "clouds": { "all": 81 }, "dt": 1652349328, 
+       "sys": { "type": 2, "id": 47754, "country": "RU", "sunrise": 1652318644, "sunset": 1652376469 }, "timezone": 10800, "id": 524901, "name": "Moscow", "cod": 200 },
+       "status": 200, "statusText": "OK", "headers": { "content-length": "519", "content-type": "application/json; charset=utf-8" }, "config": { "transitional": { "silentJSONParsing": true, "forcedJSONParsing": true, "clarifyTimeoutError": false }, "transformRequest": [ null ], "transformResponse": [ null ], "timeout": 0, "xsrfCookieName": "XSRF-TOKEN", "xsrfHeaderName": "X-XSRF-TOKEN", "maxContentLength": -1, "maxBodyLength": -1, "env": { "FormData": null }, "headers": { "Accept": "application/json, text/plain, */*" }, "method": "post", "url": "https://api.openweathermap.org/data/2.5/weather?q=Moscow,RU+&APPID=769acfb2b423d6376361ff6032d02022" }, "request": {} }
