@@ -10,6 +10,7 @@
           class="modalWindow__input"
           placeholder="Search city"
           ref="addCityInput"
+          value='Leningrad,RU'
         />
         <div class="modalWindow__buttons">
           <button class="modalWindow__button">CLEAR</button>
@@ -81,6 +82,7 @@
       viewBox="0 0 76 76"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      @click="showModal"
     >
       <g filter="url(#filter0_ddd_20_7)">
         <path
@@ -166,7 +168,7 @@
         </filter>
       </defs>
     </svg>
-    
+    {{arrCity}}
   </body>
 </template>
 
@@ -185,6 +187,8 @@ export default {
       MoscowData:'',
       city:'',
       dataCity:[],
+      arrCity:[],
+      localCity:[]
     };
   },
   methods: {
@@ -194,7 +198,6 @@ export default {
     addCity() {
       this.city=this.$refs.addCityInput.value
       localStorage.setItem("city", this.$refs.addCityInput.value);
-     /* alert(this.$refs.addCityInput.value);*/
       this.loadData(this.$refs.addCityInput.value);
       this.$refs.modalWindow.style.display = "none";
     },
@@ -211,15 +214,26 @@ export default {
             this.MoscowData=response
           }
          else{
-           alert('this.city')
-            this.dataCity.push(response)
-            }
+           this.dataCity.push(response)
+           }
+        localStorage.setItem('arrCity',JSON.stringify(this.dataCity)) 
         });
     },
+    loadCity(){
+      let localStorageCity=localStorage.getItem('arrCity')
+      localStorageCity=JSON.parse(localStorageCity)
+      console.log(localStorageCity)
+      this.localCity=localStorageCity
+
+      for(let i=0;i<=this.localCity?.length;i++){
+        this.loadData(this.localCity[i].data.name)
+      }
+    }
   },
   created() {
     this.loadData("Moscow,RU");
-  },
+    this.loadCity()
+    },
 };
 </script>
 
