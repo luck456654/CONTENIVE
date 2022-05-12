@@ -1,17 +1,21 @@
 <template>
   <body>
-    <div class="modalWindow">
+    <div class="modalWindow" ref="modalWindow" id="777">
       <div class="modalWindow__form">
         <div class="modalWindow__title">Choose a city</div>
         <div class="modalWindow__desk">
           To find city start typing and pick one from the suggestions
         </div>
-        <input class="modalWindow__input" placeholder="Search city" />
+        <input
+          class="modalWindow__input"
+          placeholder="Search city"
+          ref="addCityInput"
+        />
         <div class="modalWindow__buttons">
           <button class="modalWindow__button">CLEAR</button>
           <div class="modalWindow__add">
-          <button class="modalWindow__button">CANCEL</button>
-          <button class="modalWindow__button">ADD</button>
+            <button class="modalWindow__button">CANCEL</button>
+            <button @click="addCity" class="modalWindow__button">ADD</button>
           </div>
         </div>
       </div>
@@ -42,7 +46,7 @@
         </li>
       </ul>
     </form>
-    <button class="button-add">ADD CITY</button>
+    <button class="button-add" @click="showModal">ADD CITY</button>
     <form class="form formAddCity">
       <div class="form__title">Moscow, RU</div>
       <p class="form__desk">Your current location</p>
@@ -165,25 +169,39 @@
 import axios from "axios";
 import "@/components/css/style.min.css";
 
-const BASEURL =
-  "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=769acfb2b423d6376361ff6032d02022";
+/*const BASEURL =
+  "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=769acfb2b423d6376361ff6032d02022";*/
 export default {
   name: "ProductsList",
   data() {
     return {
       message: "777",
+      currentCity: "",
     };
   },
   methods: {
-    loadData() {
-      axios.post(BASEURL).then((response) => {
-        this.message = response;
-      });
+    showModal() {
+      this.$refs.modalWindow.style.display = "flex";
+    },
+    addCity() {
+      localStorage.setItem("city", this.$refs.addCityInput.value);
+      alert(this.$refs.addCityInput.value);
+      this.loadData(this.$refs.addCityInput.value);
+    },
+    loadData(city) {
+      localStorage.getItem("city");
+      axios
+        .post(
+          "https://api.openweathermap.org/data/2.5/weather?q=" +
+            city +
+            "+&APPID=769acfb2b423d6376361ff6032d02022"
+        )
+        .then((response) => {
+          this.message = response;
+        });
     },
   },
-  created() {
-    this.loadData();
-  },
+  created() {},
 };
 </script>
 
